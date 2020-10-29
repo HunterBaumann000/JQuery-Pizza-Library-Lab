@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../School Work/Work Employment/jquery-3.5.1.min.js"></script>
+    <meta charset="UTF-8">
+
+    <title>Pizza Division Calculator</title>
+</head>
+<body>
+
+<label>Enter the amount of toppings you wish to have on your pizza: </label>
+<input id="toppingsAmountTxt" type="number" />
+
+<br> <br>
+
+<label>Enter the amount of people sharing the pizza:</label>
+<input id="peopleSharingTxt" type="number" />
+
+<br> <br>
+
+<button id="divisionButton">Click this button to calculate the division</button>
+
+<br>
+
+<p> <span id="totalDivisionTxt">Answer will be shown here when submitted</span></p>
+
+
+
+<script>
+
+$(document).ready(function () {
+
+    $("divisionButton").click(CalculateDivision);
+
+    function CalculateDivision() {
+
+        //----------------
+
+        var toppingsAmount = $("#toppingsAmountTxt").val();
+        toppingsAmount = parseFloat(toppingsAmount);
+
+        var peopleSharing = $("#peopleSharingTxt").val();
+        peopleSharing = parseFloat(peopleSharing);
+
+        //--------------
+
+        var basePizzaCost = 15;
+        basePizzaCost = parseFloat(basePizzaCost);
+
+        var pizzaTotal = basePizzaCost + (toppingsAmount * 1.25);
+        pizzaTotal = parseFloat(pizzaTotal);
+
+        var totalDivision = pizzaTotal / peopleSharing;
+        totalDivision = parseFloat(totalDivision);
+
+        //---------------
+
+        $("#totalDivisionTxt").text("Your total division among " + peopleSharing + " people is: " + totalDivision + "$. ");
+
+    }
+});
+
+</script>
+
+</body>
+</html>

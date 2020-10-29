@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../School Work/Work Employment/jquery-3.5.1.min.js"></script>
+    <meta charset="UTF-8">
+
+    <title>Late Return Calculator</title>
+
+</head>
+<body>
+
+<label>Enter The Amount Of Late Books: </label>
+<input id="booksTxtBox" type="number" />
+
+<br> <br>
+
+<label>Enter The Days Late: </label>
+<input id="booksLateTxtBox" type="number" />
+
+<br> <br> <br>
+
+<label>Enter The Amount Of Late DVDS: </label>
+<input id="dvdsTxtBox" type="number" />
+
+<br> <br>
+
+<label>Enter The Days Late: </label>
+<input id="dvdsLateTxtBox" type="number" />
+
+<br> <br>
+
+<button id="totalButton">Click this button to calculate the total!</button>
+
+<br>
+
+<p> <span id="grandTotalTxt">Answer will be shown here when submitted</span></p>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("totalButton").click(CalculateTotal);
+
+        function CalculateTotal() {
+
+            //----------------
+
+            var amountBooks = $("#booksTxtBox").val();
+            amountBooks = parseFloat(amountBooks);
+
+            var amountDvds = $("#booksLateTxtBox").val();
+            amountDvds = parseFloat(amountDvds);
+
+            var daysLate_Book = $("#dvdsTxtBox").val();
+            daysLate_Book = parseFloat(daysLate_Book);
+
+            var daysLate_Dvds = $("#dvdsLateTxtBox").val();
+            daysLate_Dvds = parseFloat(daysLate_Dvds);
+
+            //----------------
+
+            var booksTotal = (amountBooks * daysLate_Book) * 0.25;
+            booksTotal = parseFloat(booksTotal);
+
+            var dvdsTotal = (amountDvds * daysLate_Dvds) * 0.50;
+            dvdsTotal = parseFloat(dvdsTotal);
+
+            //-----------------
+
+            var grandTotal = booksTotal + dvdsTotal;
+            grandTotal = parseFloat(grandTotal);
+
+
+            $("#grandTotalTxt").text(grandTotal);
+
+        }
+
+    });
+</script>
+
+</body>
+</html>
